@@ -1,17 +1,23 @@
 <template>
 	<div class="footer">
+		<router-link to='/'>
 		<div data-name="职位" data-index="0" data-type="custom" class="footer-tab-custom" @click="handlecustom" :class="selected=='custom'?'selected':''">
 			<span class="icon" data-type="custom" :class="selected=='custom'?'selected':''"></span>
 			<span class="text" data-type="custom">职位</span>
 		</div>
+		</router-link>
+		<router-link to='/search'>
 		<div data-name="搜索" data-index="1" data-type="search" class="footer-tab-search" :class="selected=='search'?'selected':''" @click="handlecustom">
 			<span class="icon" :class="selected=='search'?'selected':''" data-type="search"></span>
 			<span class="text" data-type="search">搜索</span>
 		</div>
+		</router-link>
+		<router-link to='/mine'>
 		<div data-name="我的" data-index="2" data-type="mine" class="footer-tab-mine" :class="selected=='mine'?'selected':''" @click="handlecustom">
 			<span class="icon" :class="selected=='mine'?'selected':''" data-type="mine"></span>
 			<span class="text" data-type="mine">我的</span>
 		</div>
+		</router-link>
 	</div>
 </template>
 
@@ -39,7 +45,6 @@ export default {
 	    line-height: 45px;
 	    border-top: 1px solid #e8e8e8;
 	    background-color: #f6f6f6;
-	    color: #c2cfcc;
 	    position: fixed;
 	    bottom: 0;
 	    left: 0;
@@ -48,6 +53,16 @@ export default {
     	display: -webkit-box;
     	display: box;
 	    font-size: 1rem;
+	}
+	.footer a{
+		display: block;
+		text-decoration: none;
+		height: 100%;
+		-moz-box-flex: 1;
+    	-webkit-box-flex: 1;
+	    box-flex: 1;
+	    text-align: center;
+	    color: #c2cfcc;
 	}
 	.footer div{
 		height: 100%;

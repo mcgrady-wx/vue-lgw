@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Index from '@/pages/Index'
+import Register from '@/pages/Register'
+import Login from '@/pages/Login'
 import Custom from '@/pages/Custom'
 import Search from '@/pages/Search'
 import Mine from '@/pages/Mine'
@@ -10,16 +13,35 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Custom',
-      component: Custom
+      redirect: Custom //设置默认显示
     },{
-      path: '/search',
-      name: 'Search',
-      component: Search
+      path: '/index',
+      name: 'Index',
+      component: Index,
+      children:[
+      	{
+		      path: 'custom',
+		      name: 'Custom',
+		      component: Custom
+		    },{
+		      path: 'search',
+		      name: 'Search',
+		      component: Search
+		    },{
+		      path: 'mine',
+		      name: 'Mine',
+		      component: Mine
+		    }
+      ]
     },{
-      path: '/mine',
-      name: 'Mine',
-      component: Mine
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ]
 })

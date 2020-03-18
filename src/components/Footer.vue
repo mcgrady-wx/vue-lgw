@@ -1,18 +1,18 @@
 <template>
 	<div class="footer">
-		<router-link to='/'>
+		<router-link to='/index/custom'>
 		<div data-name="职位" data-index="0" data-type="custom" class="footer-tab-custom" @click="handlecustom" :class="selected=='custom'?'selected':''">
 			<span class="icon" data-type="custom" :class="selected=='custom'?'selected':''"></span>
 			<span class="text" data-type="custom">职位</span>
 		</div>
 		</router-link>
-		<router-link to='/search'>
+		<router-link to='/index/search'>
 		<div data-name="搜索" data-index="1" data-type="search" class="footer-tab-search" :class="selected=='search'?'selected':''" @click="handlecustom">
 			<span class="icon" :class="selected=='search'?'selected':''" data-type="search"></span>
 			<span class="text" data-type="search">搜索</span>
 		</div>
 		</router-link>
-		<router-link to='/mine'>
+		<router-link to='/index/mine'>
 		<div data-name="我的" data-index="2" data-type="mine" class="footer-tab-mine" :class="selected=='mine'?'selected':''" @click="handlecustom">
 			<span class="icon" :class="selected=='mine'?'selected':''" data-type="mine"></span>
 			<span class="text" data-type="mine">我的</span>

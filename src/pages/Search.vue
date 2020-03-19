@@ -68,175 +68,43 @@
     		</table>
     		<div class="cities-header">KLMN</div>
     		<table class="cities-list">
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="开封">开封</td>
-    				<td class="activeable cities-item" data-item="昆明">昆明</td>
-    				<td class="activeable cities-item" data-item="六安">六安</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="聊城">聊城</td>
-    				<td class="activeable cities-item" data-item="廊坊">廊坊</td>
-    				<td class="activeable cities-item" data-item="拉萨">拉萨</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="丽水">丽水</td>
-    				<td class="activeable cities-item" data-item="临沂">临沂</td>
-    				<td class="activeable cities-item" data-item="洛阳">洛阳</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="连云港">连云港</td>
-    				<td class="activeable cities-item" data-item="兰州">兰州</td>
-    				<td class="activeable cities-item" data-item="柳州">柳州</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="马鞍山">马鞍山</td>
-    				<td class="activeable cities-item" data-item="茂名">茂名</td>
-    				<td class="activeable cities-item" data-item="绵阳">绵阳</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="梅州">梅州</td>
-    				<td class="activeable cities-item" data-item="宁波">宁波</td>
-    				<td class="activeable cities-item" data-item="南昌">南昌</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="南充">南充</td>
-    				<td class="activeable cities-item" data-item="南京">南京</td>
-    				<td class="activeable cities-item" data-item="南宁">南宁</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="南通">南通</td>
-    				<td class="activeable cities-item" data-item="南阳">南阳</td>
-    				<td class="activeable cities-item" data-item="&nbsp;">&nbsp;</td>
-    			</tr>
+    			<template v-for="kn in kton">
+	    			<tr class="cities-list-item">
+	    				<td class="activeable cities-item" :data-item="kn.a" @click="handleclick">{{kn.a}}</td>
+	    				<td class="activeable cities-item" :data-item="kn.b" @click="handleclick">{{kn.b}}</td>
+	    				<td class="activeable cities-item" :data-item="kn.c" @click="handleclick">{{kn.c}}</td>
+	    			</tr>
+	    		</template>	
     		</table>
     		<div class="cities-header">OPQR</div>
     		<table class="cities-list">
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="盘锦">盘锦</td>
-    				<td class="activeable cities-item" data-item="莆田">莆田</td>
-    				<td class="activeable cities-item" data-item="萍乡">萍乡</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="濮阳">濮阳</td>
-    				<td class="activeable cities-item" data-item="青岛">青岛</td>
-    				<td class="activeable cities-item" data-item="秦皇岛">秦皇岛</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="清远">清远</td>
-    				<td class="activeable cities-item" data-item="泉州">泉州</td>
-    				<td class="activeable cities-item" data-item="衢州">衢州</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="日照">日照</td>
-    				<td class="activeable cities-item" data-item="&nbsp;">&nbsp;</td>
-    				<td class="activeable cities-item" data-item="&nbsp;">&nbsp;</td>
-    			</tr>	
+    			<template v-for="or in otor">
+	    			<tr class="cities-list-item">
+	    				<td class="activeable cities-item" :data-item="or.a" @click="handleclick">{{or.a}}</td>
+	    				<td class="activeable cities-item" :data-item="or.b" @click="handleclick">{{or.b}}</td>
+	    				<td class="activeable cities-item" :data-item="or.c" @click="handleclick">{{or.c}}</td>
+	    			</tr>
+	    		</template>	
     		</table>
     		<div class="cities-header">STUV</div>
     		<table class="cities-list">
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="韶关">韶关</td>
-    				<td class="activeable cities-item" data-item="上海">上海</td>
-    				<td class="activeable cities-item" data-item="石家庄">石家庄</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="宿迁">宿迁</td>
-    				<td class="activeable cities-item" data-item="上饶">上饶</td>
-    				<td class="activeable cities-item" data-item="汕头">汕头</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="绍兴">绍兴</td>
-    				<td class="activeable cities-item" data-item="沈阳">沈阳</td>
-    				<td class="activeable cities-item" data-item="三亚">三亚</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="深圳">深圳</td>
-    				<td class="activeable cities-item" data-item="苏州">苏州</td>
-    				<td class="activeable cities-item" data-item="泰安">泰安</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="天津">天津</td>
-    				<td class="activeable cities-item" data-item="唐山">唐山</td>
-    				<td class="activeable cities-item" data-item="太原">太原</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="台州">台州</td>
-    				<td class="activeable cities-item" data-item="泰州">泰州</td>
-    				<td class="activeable cities-item" data-item="&nbsp;">&nbsp;</td>
-    			</tr>
+    			<template v-for="sv in stov">
+	    			<tr class="cities-list-item">
+	    				<td class="activeable cities-item" :data-item="sv.a" @click="handleclick">{{sv.a}}</td>
+	    				<td class="activeable cities-item" :data-item="sv.b" @click="handleclick">{{sv.b}}</td>
+	    				<td class="activeable cities-item" :data-item="sv.c" @click="handleclick">{{sv.c}}</td>
+	    			</tr>
+	    		</template>	
     		</table>
     		<div class="cities-header">WXYZ</div>
     		<table class="cities-list">
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="潍坊">潍坊</td>
-    				<td class="activeable cities-item" data-item="武汉">武汉</td>
-    				<td class="activeable cities-item" data-item="芜湖">芜湖</td>
-    			</tr>
-    			<tr class="cities-list-item">
-    				<td class="activeable cities-item" data-item="威海">威海</td>
-    				<td class="activeable cities-item" data-item="乌鲁木齐">乌鲁木齐</td>
-    				<td class="activeable cities-item" data-item="无锡">无锡</td>
-    			</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="温州">温州</td>
-    					<td class="activeable cities-item" data-item="西安">西安</td>
-    					<td class="activeable cities-item" data-item="许昌">许昌</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="孝感">孝感</td>
-    					<td class="activeable cities-item" data-item="香港特别行政区">香港特别行政区</td>
-    					<td class="activeable cities-item" data-item="厦门">厦门</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="西宁">西宁</td>
-    					<td class="activeable cities-item" data-item="邢台">邢台</td>
-    					<td class="activeable cities-item" data-item="湘潭">湘潭</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="新乡">新乡</td>
-    					<td class="activeable cities-item" data-item="咸阳">咸阳</td>
-    					<td class="activeable cities-item" data-item="襄阳">襄阳</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="徐州">徐州</td>
-    					<td class="activeable cities-item" data-item="宜宾">宜宾</td>
-    					<td class="activeable cities-item" data-item="银川">银川</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="盐城">盐城</td>
-    					<td class="activeable cities-item" data-item="宜昌">宜昌</td>
-    					<td class="activeable cities-item" data-item="宜春">宜春</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="烟台">烟台</td>
-    					<td class="activeable cities-item" data-item="岳阳">岳阳</td>
-    					<td class="activeable cities-item" data-item="扬州">扬州</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="淄博">淄博</td>
-    					<td class="activeable cities-item" data-item="珠海">珠海</td>
-    					<td class="activeable cities-item" data-item="湛江">湛江</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="镇江">镇江</td>
-    					<td class="activeable cities-item" data-item="张家口">张家口</td>
-    					<td class="activeable cities-item" data-item="周口">周口</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="驻马店">驻马店</td>
-    					<td class="activeable cities-item" data-item="肇庆">肇庆</td>
-    					<td class="activeable cities-item" data-item="中山">中山</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="遵义">遵义</td>
-    					<td class="activeable cities-item" data-item="郑州">郑州</td>
-    					<td class="activeable cities-item" data-item="株洲">株洲</td>
-    				</tr>
-    				<tr class="cities-list-item">
-    					<td class="activeable cities-item" data-item="漳州">漳州</td>
-    					<td class="activeable cities-item" data-item="&nbsp;">&nbsp;</td>
-    					<td class="activeable cities-item" data-item="&nbsp;">&nbsp;</td>
-    				</tr>
+    			<template v-for="wz in wtoz">
+	    			<tr class="cities-list-item">
+	    				<td class="activeable cities-item" :data-item="wz.a" @click="handleclick">{{wz.a}}</td>
+	    				<td class="activeable cities-item" :data-item="wz.b" @click="handleclick">{{wz.b}}</td>
+	    				<td class="activeable cities-item" :data-item="wz.c" @click="handleclick">{{wz.c}}</td>
+	    			</tr>
+	    		</template>	
     		</table>
     	</div>
     </div>
@@ -255,6 +123,10 @@ export default {
       remen:[{'a':'北京','b':'上海','c':'广州'},{'a':'深圳','b':'成都','c':'杭州'}],
       atof:[{'a':'鞍山','b':'蚌埠','c':'保定'},{'a':'北京','b':'包头','c':'滨州'},{'a':'亳州','b':'长春','c':'成都'},{'a':'常德','b':'赤峰','c':'重庆'},{'a':'长沙','b':'常州','c':'沧州'},{'a':'潮州','b':'郴州','c':'东莞'},{'a':'大连','b':'大庆','c':'德阳'},{'a':'东营','b':'德州','c':'佛山'},{'a':'阜阳','b':'福州','c':''}],
       gtoj:[{'a':'桂林','b':'贵阳','c':'广州'},{'a':'赣州','b':'淮安','c':'邯郸'},{'a':'哈尔滨','b':'合肥','c':'黄冈'},{'a':'呼和浩特','b':'海口','c':'衡水'},{'a':'海外','b':'衡阳','c':'河源'},{'a':'杭州','b':'惠州','c':'菏泽'},{'a':'湖州','b':'金华','c':'九江'},{'a':'吉林','b':'江门','c':'济南'},{'a':'济宁','b':'嘉兴','c':'晋中'},{'a':'焦作','b':'荆州','c':''}],
+      kton:[{'a':'开封','b':'昆明','c':'六安'},{'a':'聊城','b':'廊坊','c':'拉萨'},{'a':'丽水','b':'临沂','c':'洛阳'},{'a':'连云港','b':'兰州','c':'柳州'},{'a':'马鞍山','b':'茂名','c':'绵阳'},{'a':'梅州','b':'宁波','c':'南昌'},{'a':'南充','b':'南京','c':'南宁'},{'a':'南通','b':'南阳','c':''}],
+      otor:[{'a':'盘锦','b':'莆田','c':'萍乡'},{'a':'濮阳','b':'青岛','c':'秦皇岛'},{'a':'清远','b':'泉州','c':'衢州'},{'a':'日照','b':'','c':''}],
+      stov:[{'a':'韶关','b':'上海','c':'石家庄'},{'a':'宿迁','b':'上饶','c':'汕头'},{'a':'绍兴','b':'沈阳','c':'三亚'},{'a':'深圳','b':'苏州','c':'泰安'},{'a':'天津','b':'唐山','c':'太原'},{'a':'台州','b':'泰州','c':''}],
+      wtoz:[{'a':'潍坊','b':'武汉','c':'芜湖'},{'a':'威海','b':'乌鲁木齐','c':'无锡'},{'a':'温州','b':'西安','c':'许昌'},{'a':'孝感','b':'香港特别行政区','c':'厦门'},{'a':'西宁','b':'邢台','c':'湘潭'},{'a':'新乡','b':'咸阳','c':'襄阳'},{'a':'徐州','b':'宜宾','c':'银川'},{'a':'盐城','b':'宜昌','c':'宜春'},{'a':'烟台','b':'岳阳','c':'扬州'},{'a':'淄博','b':'珠海','c':'湛江'},{'a':'镇江','b':'张家口','c':'周口'},{'a':'驻马店','b':'肇庆','c':'中山'},{'a':'遵义','b':'郑州','c':'株洲'},{'a':'漳州','b':'','c':''}],
     }
   },
   methods:{

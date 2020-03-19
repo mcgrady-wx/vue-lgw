@@ -6,6 +6,7 @@ import Login from '@/pages/Login'
 import Custom from '@/pages/Custom'
 import Search from '@/pages/Search'
 import Mine from '@/pages/Mine'
+import Detail from '@/pages/Detail'
 
 Vue.use(Router)
 
@@ -37,11 +38,14 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
-    },
-    {
+    },{
       path: '/register',
       name: 'Register',
       component: Register
+    },{
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
     }
   ]
 })

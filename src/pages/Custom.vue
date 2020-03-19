@@ -4,27 +4,29 @@
       <span class="info">
         10秒钟定制职位
       </span>
-      <a class="go" href="#" target="_self">
+      <router-link class="go" to='/login'>
         <em class="icon"></em>
         <em class="text">去登录</em>
-      </a>
+      </router-link>
     </div>
     <ul class="list">
     	<!--模板编译，遍历json数据-->
     	<template v-for="list in lists">
-	    	<li class="list-item" :data-positionid="list.positionId" :data-companyid="list.companyId">
-	        <img :src="list.companyLogo" class="item-logo">
-	        <div class="item-desc">
-	        	<h2 class="item-title">{{list.companyName}}</h2>
-	          <p class="item-info">
-		          <span class="item-pos">
-		            {{list.positionName}} [ {{list.city}} ]
-		          </span>
-	            <span class="item-salary">{{list.salary}}</span>
-	          </p>
-	          <p class="item-time">{{list.createTime}}</p>
-	        </div>
-	      </li>
+    		<router-link  class="brother_link" :to="{path:'/detail',query:{id}}">
+		    	<li class="list-item" :data-positionid="list.positionId" :data-companyid="list.companyId" @click="gotoDetail">
+		        <img :src="list.companyLogo" class="item-logo" :data-positionid="list.positionId" :data-companyid="list.companyId">
+		        <div class="item-desc" :data-positionid="list.positionId" :data-companyid="list.companyId">
+		        	<h2 class="item-title" :data-positionid="list.positionId" :data-companyid="list.companyId">{{list.companyName}}</h2>
+		          <p class="item-info" :data-positionid="list.positionId" :data-companyid="list.companyId">
+			          <span class="item-pos" :data-positionid="list.positionId" :data-companyid="list.companyId">
+			            {{list.positionName}} [ {{list.city}} ]
+			          </span>
+		            <span class="item-salary" :data-positionid="list.positionId" :data-companyid="list.companyId">{{list.salary}}</span>
+		          </p>
+		          <p class="item-time" :data-positionid="list.positionId" :data-companyid="list.companyId">{{list.createTime}}</p>
+		        </div>
+		      </li>
+	      </router-link>
 	    </template>
 	    <li class="list-more">加载更多</li>
     </ul>
@@ -44,7 +46,8 @@ export default {
   name: 'Custom',
   data () {
     return {
-      lists: []
+      lists: [],
+      id:''
     }
   },
   created(){
@@ -53,6 +56,12 @@ export default {
 			this.lists=res.body.content.data.page.result
 			
   	})
+  },
+  methods:{
+  	gotoDetail(e){
+  		//console.log(e.target)
+  		this.id=e.target.dataset.companyid
+  	}
   }
 }
 </script>
@@ -213,5 +222,8 @@ export default {
 	p{
 		margin-bottom: 0;
 		margin-top: 0;
+	}
+	.brother_link{
+		display: block;
 	}
 </style>

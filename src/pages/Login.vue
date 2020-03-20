@@ -7,13 +7,13 @@
 		</header>
 		<form class="form_body form_password" method="post">
 			<div class="input_label account-wrap">
-				<input type="text" placeholder="请输入已验证的手机号或邮箱" class="input_text user_input">
+				<input type="text" placeholder="请输入已验证的手机号或邮箱" class="input_text user_input" @input="userphone">
 			</div>
 			<div class="input_label code-wrap">
-				<input type="password" class="input_text password_input" placeholder="请输入密码">
+				<input type="password" class="input_text password_input" placeholder="请输入密码" @input="userpassword">
 			</div>
 			<div class="input_label btn_group">
-				<input type="submit" class="submit_btn" value="登录">
+				<input type="submit" class="submit_btn" value="登录" @click="submit">
 			</div>
 		</form>
 		<footer class="form_footer">
@@ -72,11 +72,11 @@
 			    </dl>
 			    <p class="tips">如果没有找到你所在的归属地，<br>请拨打客服电话<a href="tel:4006282835">4006282835</a> 解决。</p>
 			</div>
-			<input type="text" placeholder="请输入常用手机号" class="input_text phone_input">
+			<input type="text" placeholder="请输入常用手机号" class="input_text phone_input" @input="userphone1" :class="{hong:hong}" @focus="focus" @blur="blur">
 			</div>
 			<div class="input_label code-wrap">
 				<input type="text" class="input_text vcode_input" maxlength="6" placeholder="请输入收到的验证码">
-				<input type="button" class="input_text vcode_link" value="获取验证码" placeholder="获取验证码">
+				<input type="button" class="input_text vcode_link" value="获取验证码" placeholder="获取验证码" @click="yanzhengma">
 			</div>
 			<div class="input_label btn_group">
 				<input type="submit" class="submit_btn" value="登录">
@@ -98,7 +98,11 @@ export default {
   		n:'block',
   		n1:'none',
   		phones:false,
-  		ph:'0086'
+  		ph:'0086',
+  		uesrph:'',
+  		userpd:'',
+  		uesrph1:'',
+  		hong:false
   	}
   },
   methods:{
@@ -118,6 +122,58 @@ export default {
   	phone(e){
 		this.phones=!this.phones
 		this.ph=e.target.dataset.code
+  	},
+  	userphone(e){
+  		this.uesrph=e.target.value
+  	},
+  	userpassword(e){
+  		this.userpd=e.target.value
+  	},
+  	submit(e){
+  		let _e=e
+  		let user={'userphone':this.uesrph,'userpassword':this.userpd}
+  		//console.log(user)
+  		this.$http.get('/static/3.json').then((res)=>{
+  			let users=res.body.content.data.page.result
+  			let u=users.some(item=>{
+				return (item.userphone==user.userphone && item.userpassword==user.userpassword)
+			
+			})
+			if (u) {
+					alert("登录成功");
+				} else {
+					_e.preventDefault()
+					alert("账号或者密码密码错误");
+				}
+				
+
+  		})
+
+  	},
+  	userphone1(e){
+  		this.uesrph1=e.target.value
+  	},
+  	yanzhengma(){
+  		if (!this.uesrph1) {
+  			this.hong=true
+  			alert("请输入手机号")
+  		}
+  	},
+  	focus(){
+  		this.hong=false
+  	},
+  	blur(){
+  		let uesrph1=this.uesrph1
+  		this.$http.get('/static/3.json').then((res)=>{
+  			let users=res.body.content.data.page.result
+  			let u=users.some(item=>{
+				return item.userphone==uesrph1
+			
+			})
+			if (!u) {
+					alert("手机号未注册，请去注册");
+				}
+  		})
   	}
   }
 }
@@ -273,5 +329,8 @@ export default {
 	.area_code_list .tips a {
 	    color: #00b38a;
 	    text-decoration: none;
+	}
+	.hong{
+		border-color: red;
 	}
 </style>

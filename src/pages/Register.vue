@@ -52,11 +52,11 @@
 			    </dl>
 			    <p class="tips">如果没有找到你所在的归属地，<br>请拨打客服电话<a href="tel:4006282835">4006282835</a> 解决。</p>
 			</div>
-			<input type="text" placeholder="请输入常用手机号" class="input_text phone_input">
+			<input type="text" placeholder="请输入常用手机号" class="input_text phone_input" @input="userphone" :class="{hong:hong}" @focus="focus" @blur="blur">
 			</div>
 			<div class="input_label code-wrap">
-				<input type="text" class="input_text vcode_input" maxlength="6" placeholder="请输入收到的验证码">
-				<input type="button" class="input_text vcode_link" value="获取验证码" placeholder="获取验证码">
+				<input type="text" class="input_text vcode_input" maxlength="6" placeholder="请输入收到的验证码" >
+				<input type="button" class="input_text vcode_link" value="获取验证码" placeholder="获取验证码" @click="yanzhengma">
 			</div>
 			<div class="input_label btn_group">
 				<input type="submit" class="submit_btn" value="注册">
@@ -73,7 +73,9 @@ export default {
   data(){
   	return {
   		hao:'0086',
-  		phones:false
+  		phones:false,
+  		hong:false,
+  		uesrph:'',
   	}
   },
   methods:{
@@ -83,6 +85,31 @@ export default {
   	phone(e){
 		this.phones=!this.phones
 		this.hao=e.target.dataset.code
+  	},
+  	userphone(e){
+  		this.uesrph=e.target.value
+  	},
+  	yanzhengma(){
+  		if (!this.uesrph) {
+  			this.hong=true
+  			alert("请输入手机号")
+  		}
+  	},
+  	focus(){
+  		this.hong=false
+  	},
+  	blur(){
+  		let uesrph=this.uesrph
+  		this.$http.get('/static/3.json').then((res)=>{
+  			let users=res.body.content.data.page.result
+  			let u=users.some(item=>{
+				return item.userphone==uesrph
+			
+			})
+			if (u) {
+					alert("手机号已注册，请去登陆");
+				}
+  		})
   	}
   }
 }
@@ -240,5 +267,8 @@ export default {
 	.register_agreement a {
 	    color: #666;
 	    text-decoration: none;
+	}
+	.hong{
+		border-color: red;
 	}
 </style>

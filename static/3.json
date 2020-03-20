@@ -1,0 +1,28 @@
+{"state":1,
+    "message":"分页数据",
+    "content":{
+        "data":{
+            "custom":{
+                "positionName":"前端",
+                "city":"全国"
+            },
+            "page":{
+                "pageSize":15,
+                "start":"0",
+                "result":[
+                    {
+                        "userphone":"123456","userpassword":"123"
+                    },
+                    {
+                       "userphone":"12345678","userpassword":"111"
+                    }
+                ],
+                "totalCount":"9013",
+                "pageNo":1
+            }
+        },
+        "rows":[
+
+        ]
+    }
+}
